@@ -20,6 +20,20 @@
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZuYmHYRyYJHssUKQrDYG9Qj0cOET_RHHcAQ&usqp=CAU",
       "address": "Meetupstreet 5, 12345 Meetup City",
       "description": "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!"
+    },
+    {
+      "title": "aa",
+      "image": "https://c4.wallpaperflare.com/wallpaper/35/554/469/arquitectura-bangalore-palace-wallpaper-preview.jpg",
+      "address": "abc",
+      "description": "a",
+      "id": 4
+    },
+    {
+      "title": "hg",
+      "image": "https://c4.wallpaperflare.com/wallpaper/35/554/469/arquitectura-bangalore-palace-wallpaper-preview.jpg",
+      "address": "abc",
+      "description": "x",
+      "id": 5
     }
   ]
 }

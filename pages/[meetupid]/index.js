@@ -1,65 +1,64 @@
-import {server} from '../../config'
-import MeetupDetail from '../../components/meetups/MeetupDetail'
-import {useRouter} from 'next/router'
+import { server } from "../../config";
+import MeetupDetail from "../../components/meetups/MeetupDetail";
+import { useRouter } from "next/router";
 
-function MeetupDetails({meetupData}) {
+function MeetupDetails({ meetupData }) {
+  const router = useRouter();
+  const meetupid = router.query.meetupid;
 
-    const router = useRouter()
+  if (router.isFallback) {
+    return <h1>Loading</h1>;
+  }
 
-    if(router.isFallback){
-       return<h1>Loading</h1>
-    }
-
-    return (
-        <MeetupDetail image={meetupData.image}
-            title={meetupData.title}
-            address={meetupData.address}
-            description={meetupData.description} />
-
-    )
-
+  return (
+    <>
+      <h1 style={{color:'#2d1b92'}}>Collection: {meetupid}</h1>
+      <MeetupDetail
+        image={meetupData.image}
+        title={meetupData.title}
+        address={meetupData.address}
+        description={meetupData.description}
+      />
+    </>
+  );
 }
 
-
-export async function getStaticPaths(){
-
-return{
-    
-   
-  paths:  [
-        {
-            params:{
-                meetupid:'m1'
-            }
+export async function getStaticPaths() {
+  return {
+    paths: [
+      {
+        params: {
+          meetupid: "1",
         },
-        {
-            params:{
-                meetupid:'m2'
-            }
+      },
+      {
+        params: {
+          meetupid: "2",
         },
+      },
     ],
-    fallback:true
-}
+    fallback: true,
+  };
 }
 
+export async function getStaticProps(context) {
+  const { params } = context;
 
-export async function getStaticProps(context){
-    const {params}=context
-    
-    const response= await fetch(`http://localhost:5000/comments/${params.meetupid}`)
-    const data = await response.json()
+  const response = await fetch(
+    `http://localhost:5000/comments/${params.meetupid}`
+  );
+  const data = await response.json();
 
-    if(!data.id){
-        return{
-            notFound: true  // if there is no path it will set 404 page
-        }
-    }
-    
-    return{
-        props:{
-            meetupData:data
-        },
-        
-    }
+  if (!data.id) {
+    return {
+      notFound: true, // if there is no path it will set 404 page
+    };
+  }
+
+  return {
+    props: {
+      meetupData: data,
+    },
+  };
 }
-export default MeetupDetails
+export default MeetupDetails;
