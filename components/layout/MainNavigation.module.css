@@ -5,15 +5,15 @@
     align-items: center;
     justify-content: space-between;
     background-color: #2d1b92;
-    padding: 0 10%;
+    padding: 0 5%;
     position: fixed;
     top: 0px;
   }
   
-  .logo {
-    font-size: 2rem;
-    color: white;
-    font-weight: bold;
+  .logo img{
+   border-radius: 30px;
+   width: 50px;
+   cursor: grab;
   }
   
   .header ul {

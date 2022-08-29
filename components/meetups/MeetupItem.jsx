@@ -11,6 +11,17 @@ function MeetupItem(props) {
     router.push('/'+ props.id)
   }
 
+  function handleDelete(){
+    fetch(`http://localhost:5000/comments/${props.id}`, 
+    {
+      method:"DELETE"
+    })
+    .then(()=>{
+      alert(`Collection ${props.id} has been removed`)
+      router.push('/')
+    })
+  }
+
   return (
     <li className={classes.item}>
       <Card>
@@ -25,7 +36,7 @@ function MeetupItem(props) {
           <button onClick={showDetailsHandler}>Show Details</button>
         </div>
         <div className={classes.delete}>
-        <button >Delete</button>
+        <button onClick={handleDelete}>Delete</button>
         </div>
       </Card>
     </li>

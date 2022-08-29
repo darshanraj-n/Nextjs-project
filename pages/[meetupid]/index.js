@@ -6,13 +6,13 @@ function MeetupDetails({ meetupData }) {
   const router = useRouter();
   const meetupid = router.query.meetupid;
 
-  if (router.isFallback) {
-    return <h1>Loading</h1>;
-  }
+  // if (router.isFallback) {
+  //   return <h1>Loading</h1>;
+  // }
 
   return (
     <>
-      <h1 style={{color:'#2d1b92'}}>Collection: {meetupid}</h1>
+      <h1 style={{ color: "#2d1b92" }}>Collection: {meetupid}</h1>
       <MeetupDetail
         image={meetupData.image}
         title={meetupData.title}
@@ -44,9 +44,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { params } = context;
 
-  const response = await fetch(
-    `http://localhost:5000/comments/${params.meetupid}`
-  );
+  const response = await fetch(`http://localhost:5000/comments/${params.meetupid}`);
   const data = await response.json();
 
   if (!data.id) {

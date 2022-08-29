@@ -1,6 +1,5 @@
-
 import MeetupList from "../components/meetups/MeetupList"
-import {server} from '../config'
+import {url} from '../config'
 
 
 function HomePage({meetups}) {
@@ -11,7 +10,7 @@ function HomePage({meetups}) {
     )
 }
 export async function getStaticProps(){
-    const res = await fetch(`${server}/api/new-meetup`)
+    const res = await fetch(`${url}/api/new-meetup`)
     const articles = await res.json()
     
     return{
@@ -24,3 +23,4 @@ export async function getStaticProps(){
 
 
 export default HomePage
+

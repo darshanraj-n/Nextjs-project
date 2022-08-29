@@ -1,7 +1,5 @@
 import classes from "./MainNavigation.module.css";
 import Link from "next/link";
-
-// import {  useSession } from 'next-auth/client'
 import { signIn, signOut, useSession } from "next-auth/react";
 
 
@@ -9,13 +7,16 @@ function MainNavigation() {
   // const {session, loading} = useSession()
   // console.log( {session, loading});
   const { data:session } = useSession()
-console.log(session);
+// console.log({session});
 
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>(-_-)</div>
+      <div className={classes.logo}><Link href="/"><img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5oDMVNt-S-c_lT-hSxFRutdvRGCJZi6ka_w&usqp=CAU" alt="" /></Link></div>
+
+      <h2 style={{color:'white'}}> {session ? `${session.user.name} ` : ''}</h2>
+      
       <nav>
-        <ul className>
+        <ul className> 
           <li>
             <Link href="/">Collections</Link>
           </li>
@@ -23,7 +24,7 @@ console.log(session);
             <Link href="/new-meetup">Add New </Link>
           </li>
           <li>
-            <Link href="">Favourites</Link>
+            <Link href="/Favourites">Favourites</Link>
           </li>
           <li>
             <Link href="/blog">Blog</Link>
