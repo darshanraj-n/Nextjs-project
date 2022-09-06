@@ -6,7 +6,7 @@ import { getSession, signIn } from 'next-auth/react'
 
 function NewMeetupPage() {
     const router = useRouter()
-    
+    const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
 
     async function addMeetupHandler(enteredMeetupData) {
@@ -21,10 +21,11 @@ function NewMeetupPage() {
         const data = await response.json()
         .then(()=>{
             alert(`Meetuop has been added to the list`)
+            router.push('/')
         })
         
        console.log(data);
-        router.push('/')
+        
     }
    
     useEffect(() => {

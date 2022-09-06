@@ -28,12 +28,12 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          meetupid: "1",
+          meetupid:'1',
         },
       },
       {
         params: {
-          meetupid: "2",
+          meetupid:'2',
         },
       },
     ],
@@ -43,7 +43,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { params } = context;
-
+console.log('reee');
   const response = await fetch(`http://localhost:5000/comments/${params.meetupid}`);
   const data = await response.json();
 
@@ -57,6 +57,7 @@ export async function getStaticProps(context) {
     props: {
       meetupData: data,
     },
+    revalidate: 1,
   };
 }
 export default MeetupDetails;

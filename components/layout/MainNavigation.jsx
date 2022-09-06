@@ -4,7 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 
 function MainNavigation() {
-  // const {session, loading} = useSession()
+  // const {data:session, loading} = useSession()
   // console.log( {session, loading});
   const { data:session } = useSession()
 // console.log({session});
@@ -16,8 +16,8 @@ function MainNavigation() {
       <h2 style={{color:'white'}}> {session ? `${session.user.name} ` : ''}</h2>
       
       <nav>
-        <ul className> 
-          <li>
+        <ul > 
+          <li  className={`${!session  ? 'session' : 'loaded'}`} >
             <Link href="/">Collections</Link>
           </li>
           <li>
@@ -25,6 +25,7 @@ function MainNavigation() {
           </li>
           <li>
             <Link href="/Favourites">Favourites</Link>
+            <sup style={{color:'red'}}>New</sup>
           </li>
           <li>
             <Link href="/blog">Blog</Link>
@@ -62,5 +63,5 @@ function MainNavigation() {
     </header>
   );
 }
-
+// className={`${!session  ? 'session' : 'loaded'}`}
 export default MainNavigation;
