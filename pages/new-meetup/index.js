@@ -28,6 +28,7 @@ function NewMeetupPage() {
         
     }
    
+// authentication 
     useEffect(() => {
         const securePage = async () => {
           const session = await getSession()

@@ -30,6 +30,9 @@ function MainNavigation() {
           <li>
             <Link href="/blog">Blog</Link>
           </li>
+          <li>
+            <Link href="/news">News</Link>
+          </li>
 
           { !session && (
           <li>

@@ -4,7 +4,7 @@ import Head from "next/head";
 import { getSession, useSession } from 'next-auth/react'
 
 const Favourites = ({data}) => {
-  const {session} = useSession()
+  const {data:session} = useSession()
   // console.log({ session })
   return (
     <>
@@ -18,7 +18,7 @@ const Favourites = ({data}) => {
 
 export default Favourites;
 
-
+//auth for server side rendering using get session 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
   if (!session) {

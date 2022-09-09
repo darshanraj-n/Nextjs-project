@@ -43,7 +43,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { params } = context;
-console.log('reee');
+console.log('heee');
   const response = await fetch(`http://localhost:5000/comments/${params.meetupid}`);
   const data = await response.json();
 
