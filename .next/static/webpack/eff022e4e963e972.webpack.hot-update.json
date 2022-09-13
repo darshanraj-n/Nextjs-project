@@ -1,0 +1,1 @@
+{"c":["pages/posts","webpack"],"r":["pages/posts/[postid]"],"m":["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=C%3A%5CUsers%5Cdarn%5CDesktop%5Cnext1%5Cnextfile%5Cpages%5Cposts%5C%5Bpostid%5D.js&page=%2Fposts%2F%5Bpostid%5D!","./pages/posts/[postid].js"]}
